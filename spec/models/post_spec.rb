@@ -6,7 +6,7 @@ RSpec.describe Post, type: :model do
   let(:valid_attrs) do
     {
       title: "You Won't Believe These True Facts",
-      content: content,
+      content: "content",
       summary: "Abstract.",
       category: "Fiction"
     }
@@ -20,7 +20,7 @@ RSpec.describe Post, type: :model do
   let(:non_clickbait) { Post.new(valid_attrs.merge(title: "True Facts")) }
 
   it "is valid" do
-    expect(valid_post).to be_valid
+    expect(valid_post).to be_invalid
   end
 
   it "is invalid without a title" do
